@@ -1,0 +1,36 @@
+<svg viewBox="0 0 780 130" xmlns="http://www.w3.org/2000/svg" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+  <rect width="780" height="130" fill="#0D1117" rx="8"/>
+
+  <!-- DB 조회 -->
+  <rect x="20" y="30" width="150" height="50" rx="6" fill="#1565C0" stroke="#4FC3F7" stroke-width="1.5"/>
+  <text x="95" y="52" fill="white" font-size="13" font-weight="bold" text-anchor="middle">DB 조회</text>
+  <text x="95" y="69" fill="#90CAF9" font-size="9" text-anchor="middle">월별 건수 집계</text>
+  <text x="95" y="98" fill="#546E7A" font-size="8" text-anchor="middle">첫 번째로 실행</text>
+
+  <!-- 상세 조회 -->
+  <rect x="200" y="30" width="150" height="50" rx="6" fill="#2E7D32" stroke="#81C784" stroke-width="1.5"/>
+  <text x="275" y="52" fill="white" font-size="13" font-weight="bold" text-anchor="middle">상세 조회</text>
+  <text x="275" y="69" fill="#C8E6C9" font-size="9" text-anchor="middle">체크 월 상세 로드</text>
+  <text x="275" y="98" fill="#546E7A" font-size="8" text-anchor="middle">DB 조회 후 실행</text>
+
+  <!-- 중간 라벨 -->
+  <text x="410" y="30" fill="#263238" font-size="20" text-anchor="middle">→</text>
+  <text x="410" y="60" fill="#37474F" font-size="9" text-anchor="middle">배정갯수</text>
+  <text x="410" y="74" fill="#37474F" font-size="9" text-anchor="middle">입력 후</text>
+
+  <!-- DB 배정 -->
+  <rect x="440" y="30" width="150" height="50" rx="6" fill="#E65100" stroke="#FFCC80" stroke-width="1.5"/>
+  <text x="515" y="52" fill="white" font-size="13" font-weight="bold" text-anchor="middle">DB 배정</text>
+  <text x="515" y="69" fill="#FFE0B2" font-size="9" text-anchor="middle">화면 자동 배정</text>
+  <text x="515" y="98" fill="#546E7A" font-size="8" text-anchor="middle">DB 미변경 (화면만)</text>
+
+  <!-- DB 입력 -->
+  <rect x="614" y="30" width="150" height="50" rx="6" fill="#B71C1C" stroke="#EF9A9A" stroke-width="1.5"/>
+  <text x="689" y="52" fill="white" font-size="13" font-weight="bold" text-anchor="middle">DB 입력</text>
+  <text x="689" y="69" fill="#FFCDD2" font-size="9" text-anchor="middle">UPDATE + 엑셀저장</text>
+  <text x="689" y="98" fill="#EF5350" font-size="8" font-weight="bold" text-anchor="middle">⚠ 실제 DB 변경</text>
+
+  <!-- Warning triangle for DB 입력 -->
+  <polygon points="689,108 699,125 679,125" fill="none" stroke="#EF5350" stroke-width="1.5"/>
+  <text x="689" y="122" fill="#EF5350" font-size="8" text-anchor="middle">!</text>
+</svg>

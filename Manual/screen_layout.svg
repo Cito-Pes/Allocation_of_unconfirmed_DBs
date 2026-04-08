@@ -1,0 +1,174 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif">
+  <!-- Background -->
+  <rect width="900" height="560" fill="#1B2631" rx="10"/>
+  <!-- Title bar -->
+  <rect x="0" y="0" width="900" height="36" fill="#0D1117" rx="10"/>
+  <rect x="0" y="20" width="900" height="16" fill="#0D1117"/>
+  <circle cx="20" cy="18" r="6" fill="#FF5F57"/>
+  <circle cx="38" cy="18" r="6" fill="#FFBD2E"/>
+  <circle cx="56" cy="18" r="6" fill="#28CA41"/>
+  <text x="450" y="23" fill="#aaa" font-size="12" text-anchor="middle">미체결DB 배정</text>
+
+  <!-- ① 월별 DB 수량 패널 -->
+  <rect x="10" y="44" width="165" height="300" fill="#1E2D3D" rx="4" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="10" y="44" width="165" height="22" fill="#152535" rx="4"/>
+  <rect x="10" y="55" width="165" height="11" fill="#152535"/>
+  <text x="18" y="59" fill="#90CAF9" font-size="10" font-weight="bold">① 월별 DB 수량</text>
+  <!-- table header -->
+  <rect x="12" y="68" width="161" height="18" fill="#0D47A1"/>
+  <text x="22" y="80" fill="white" font-size="9" font-weight="bold">체크</text>
+  <text x="55" y="80" fill="white" font-size="9" font-weight="bold">월</text>
+  <text x="120" y="80" fill="white" font-size="9" font-weight="bold">수량</text>
+  <!-- rows -->
+  <rect x="12" y="86" width="161" height="16" fill="#243447"/>
+  <rect x="15" y="89" width="12" height="10" fill="none" stroke="#aaa" stroke-width="1" rx="1"/>
+  <text x="55" y="98" fill="#ECF0F1" font-size="9">2021-08</text><text x="140" y="98" fill="#ECF0F1" font-size="9" text-anchor="end">135</text>
+  <rect x="12" y="102" width="161" height="16" fill="#1E2D3D"/>
+  <rect x="15" y="105" width="12" height="10" fill="none" stroke="#aaa" stroke-width="1" rx="1"/>
+  <text x="55" y="114" fill="#ECF0F1" font-size="9">2021-09</text><text x="140" y="114" fill="#ECF0F1" font-size="9" text-anchor="end">759</text>
+  <!-- checked row -->
+  <rect x="12" y="118" width="161" height="16" fill="#1A3A2A"/>
+  <rect x="15" y="121" width="12" height="10" fill="#2E7D32" stroke="#2E7D32" stroke-width="1" rx="1"/>
+  <text x="22" y="130" fill="white" font-size="9" font-weight="bold">✓</text>
+  <text x="55" y="130" fill="#90EE90" font-size="9" font-weight="bold">2021-10</text><text x="140" y="130" fill="#90EE90" font-size="9" text-anchor="end" font-weight="bold">1,509</text>
+  <rect x="12" y="134" width="161" height="16" fill="#243447"/>
+  <rect x="15" y="137" width="12" height="10" fill="none" stroke="#aaa" stroke-width="1" rx="1"/>
+  <text x="55" y="146" fill="#ECF0F1" font-size="9">2021-11</text><text x="140" y="146" fill="#ECF0F1" font-size="9" text-anchor="end">1,466</text>
+  <rect x="12" y="150" width="161" height="16" fill="#1E2D3D"/>
+  <rect x="15" y="153" width="12" height="10" fill="none" stroke="#aaa" stroke-width="1" rx="1"/>
+  <text x="55" y="162" fill="#ECF0F1" font-size="9">2021-12</text><text x="140" y="162" fill="#ECF0F1" font-size="9" text-anchor="end">2,006</text>
+  <rect x="12" y="166" width="161" height="16" fill="#243447"/>
+  <rect x="15" y="169" width="12" height="10" fill="none" stroke="#aaa" stroke-width="1" rx="1"/>
+  <text x="55" y="178" fill="#ECF0F1" font-size="9">2022-01</text><text x="140" y="178" fill="#ECF0F1" font-size="9" text-anchor="end">432</text>
+  <!-- checked row -->
+  <rect x="12" y="182" width="161" height="16" fill="#1A3A2A"/>
+  <rect x="15" y="185" width="12" height="10" fill="#2E7D32" stroke="#2E7D32" stroke-width="1" rx="1"/>
+  <text x="22" y="194" fill="white" font-size="9" font-weight="bold">✓</text>
+  <text x="55" y="194" fill="#90EE90" font-size="9" font-weight="bold">2022-02</text><text x="140" y="194" fill="#90EE90" font-size="9" text-anchor="end" font-weight="bold">178</text>
+  <!-- more rows -->
+  <rect x="12" y="198" width="161" height="16" fill="#1E2D3D"/>
+  <rect x="15" y="201" width="12" height="10" fill="none" stroke="#aaa" stroke-width="1" rx="1"/>
+  <text x="55" y="210" fill="#ECF0F1" font-size="9">2022-03</text><text x="140" y="210" fill="#ECF0F1" font-size="9" text-anchor="end">1,323</text>
+  <rect x="12" y="214" width="161" height="16" fill="#243447"/>
+  <rect x="15" y="217" width="12" height="10" fill="none" stroke="#aaa" stroke-width="1" rx="1"/>
+  <text x="55" y="226" fill="#ECF0F1" font-size="9">2022-04</text><text x="140" y="226" fill="#ECF0F1" font-size="9" text-anchor="end">40</text>
+  <!-- badge -->
+  <rect x="100" y="48" width="70" height="16" fill="#0D47A1" rx="8"/>
+  <text x="135" y="59" fill="white" font-size="8" text-anchor="middle">체크 후 상세조회</text>
+
+  <!-- ② DB 내용 패널 -->
+  <rect x="183" y="44" width="707" height="300" fill="#1E2D3D" rx="4" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="183" y="44" width="707" height="22" fill="#152535" rx="4"/>
+  <rect x="183" y="55" width="707" height="11" fill="#152535"/>
+  <text x="191" y="59" fill="#90CAF9" font-size="10" font-weight="bold">② DB 내용</text>
+  <!-- header -->
+  <rect x="185" y="68" width="703" height="18" fill="#0D47A1"/>
+  <text x="205" y="80" fill="white" font-size="8" font-weight="bold">휴대전화</text>
+  <text x="275" y="80" fill="white" font-size="8" font-weight="bold">ID</text>
+  <text x="340" y="80" fill="white" font-size="8" font-weight="bold">성명</text>
+  <text x="390" y="80" fill="white" font-size="8" font-weight="bold">등록일</text>
+  <text x="455" y="80" fill="white" font-size="8" font-weight="bold">상태</text>
+  <text x="500" y="80" fill="white" font-size="8" font-weight="bold">사번</text>
+  <text x="555" y="80" fill="white" font-size="8" font-weight="bold">담당자명</text>
+  <text x="620" y="80" fill="white" font-size="8" font-weight="bold">배정일</text>
+  <text x="680" y="80" fill="white" font-size="8" font-weight="bold" fill="#FFD700">신규배정일</text>
+  <text x="755" y="80" fill="#FFD700" font-size="8" font-weight="bold">신규담당자</text>
+  <!-- rows -->
+  <rect x="185" y="86" width="703" height="16" fill="#243447"/>
+  <text x="205" y="98" fill="#ECF0F1" font-size="8">01073037...</text>
+  <text x="275" y="98" fill="#ECF0F1" font-size="8">2025072...</text>
+  <text x="340" y="98" fill="#ECF0F1" font-size="8">배진영</text>
+  <text x="390" y="98" fill="#ECF0F1" font-size="8">2025-07-2</text>
+  <text x="455" y="98" fill="#FF8A80" font-size="8">취소</text>
+  <text x="500" y="98" fill="#ECF0F1" font-size="8">20240073</text>
+  <text x="555" y="98" fill="#ECF0F1" font-size="8">이소영</text>
+  <text x="620" y="98" fill="#ECF0F1" font-size="8">2025-07-2</text>
+  <text x="680" y="98" fill="#ECF0F1" font-size="8"></text>
+  <text x="755" y="98" fill="#ECF0F1" font-size="8"></text>
+  <!-- assigned row -->
+  <rect x="185" y="102" width="703" height="16" fill="#1A3A2A"/>
+  <text x="205" y="114" fill="#ECF0F1" font-size="8">01073130...</text>
+  <text x="275" y="114" fill="#ECF0F1" font-size="8">2025072...</text>
+  <text x="340" y="114" fill="#ECF0F1" font-size="8">박정숙</text>
+  <text x="390" y="114" fill="#ECF0F1" font-size="8">2025-07-2</text>
+  <text x="455" y="114" fill="#FFB74D" font-size="8">부재</text>
+  <text x="500" y="114" fill="#ECF0F1" font-size="8">20250025</text>
+  <text x="555" y="114" fill="#ECF0F1" font-size="8">김덕희</text>
+  <text x="620" y="114" fill="#ECF0F1" font-size="8">2025-07-2</text>
+  <text x="680" y="114" fill="#90EE90" font-size="8" font-weight="bold">2026-04-08</text>
+  <text x="755" y="114" fill="#90EE90" font-size="8" font-weight="bold">박미아</text>
+  <rect x="185" y="118" width="703" height="16" fill="#243447"/>
+  <text x="205" y="130" fill="#ECF0F1" font-size="8">01073263...</text>
+  <text x="275" y="130" fill="#ECF0F1" font-size="8">2025072...</text>
+  <text x="340" y="130" fill="#ECF0F1" font-size="8">손도원</text>
+  <text x="390" y="130" fill="#ECF0F1" font-size="8">2025-07-2</text>
+  <text x="455" y="130" fill="#FF8A80" font-size="8">취소</text>
+  <text x="500" y="130" fill="#ECF0F1" font-size="8">3216</text>
+  <text x="555" y="130" fill="#ECF0F1" font-size="8">가미숙</text>
+  <rect x="185" y="134" width="703" height="16" fill="#1E2D3D"/>
+  <rect x="185" y="150" width="703" height="16" fill="#243447"/>
+  <rect x="185" y="166" width="703" height="16" fill="#1E2D3D"/>
+  <rect x="185" y="182" width="703" height="16" fill="#243447"/>
+  <!-- new columns highlight -->
+  <rect x="672" y="68" width="90" height="234" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="4,2" rx="2"/>
+  <text x="717" y="315" fill="#FFD700" font-size="9" text-anchor="middle">신규 배정 컬럼</text>
+
+  <!-- ③ 배정 패널 -->
+  <rect x="10" y="352" width="200" height="160" fill="#1E2D3D" rx="4" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="10" y="352" width="200" height="22" fill="#152535" rx="4"/>
+  <rect x="10" y="363" width="200" height="11" fill="#152535"/>
+  <text x="18" y="367" fill="#90CAF9" font-size="10" font-weight="bold">③ 배정</text>
+  <rect x="12" y="376" width="196" height="18" fill="#0D47A1"/>
+  <text x="30" y="388" fill="white" font-size="9" font-weight="bold">사번</text>
+  <text x="90" y="388" fill="white" font-size="9" font-weight="bold">담당자명</text>
+  <text x="160" y="388" fill="white" font-size="9" font-weight="bold">배정갯수</text>
+  <rect x="12" y="394" width="196" height="16" fill="#243447"/>
+  <text x="30" y="406" fill="#ECF0F1" font-size="9">20240073</text><text x="90" y="406" fill="#ECF0F1" font-size="9">이소영</text><text x="185" y="406" fill="#ECF0F1" font-size="9" text-anchor="end">0</text>
+  <rect x="12" y="410" width="196" height="16" fill="#1E2D3D"/>
+  <text x="30" y="422" fill="#ECF0F1" font-size="9">20250091</text><text x="90" y="422" fill="#ECF0F1" font-size="9">임현미</text><text x="185" y="422" fill="#ECF0F1" font-size="9" text-anchor="end">0</text>
+  <rect x="12" y="426" width="196" height="16" fill="#243447"/>
+  <text x="30" y="438" fill="#ECF0F1" font-size="9">3216</text><text x="90" y="438" fill="#ECF0F1" font-size="9">가미숙</text>
+  <!-- editable cell highlight -->
+  <rect x="153" y="427" width="53" height="14" fill="#0D47A1" stroke="#4FC3F7" stroke-width="1" rx="1"/>
+  <text x="203" y="438" fill="#4FC3F7" font-size="9" text-anchor="end">4</text>
+  <rect x="12" y="442" width="196" height="16" fill="#1E2D3D"/>
+  <text x="30" y="454" fill="#ECF0F1" font-size="9">20250045</text><text x="90" y="454" fill="#ECF0F1" font-size="9">박미아</text>
+  <rect x="153" y="443" width="53" height="14" fill="#0D47A1" stroke="#4FC3F7" stroke-width="1" rx="1"/>
+  <text x="203" y="454" fill="#4FC3F7" font-size="9" text-anchor="end">2</text>
+  <!-- edit hint -->
+  <text x="106" y="500" fill="#78909C" font-size="8" text-anchor="middle">더블클릭으로 숫자 입력</text>
+
+  <!-- ④ 처리상황 패널 -->
+  <rect x="218" y="352" width="672" height="160" fill="#0D1117" rx="4" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="218" y="352" width="672" height="22" fill="#0A0F14" rx="4"/>
+  <rect x="218" y="363" width="672" height="11" fill="#0A0F14"/>
+  <text x="226" y="367" fill="#90CAF9" font-size="10" font-weight="bold">④ 처리상황</text>
+  <text x="226" y="388" fill="#90EE90" font-size="9" font-family="Consolas, monospace">2026-04-08 16:10:25    월별 DB 수량 조회 중...</text>
+  <text x="226" y="403" fill="#90EE90" font-size="9" font-family="Consolas, monospace">2026-04-08 16:10:26    월별 DB 수량 조회 완료  (24건)</text>
+  <text x="226" y="418" fill="#90EE90" font-size="9" font-family="Consolas, monospace">2026-04-08 16:11:26    선택월 DB 상세조회 완료  (1509건)</text>
+  <text x="226" y="433" fill="#90EE90" font-size="9" font-family="Consolas, monospace">2026-04-08 16:11:26    배정담당자 조회 완료  (6명)</text>
+  <text x="226" y="448" fill="#90EE90" font-size="9" font-family="Consolas, monospace">2026-04-08 16:14:30    DB 배정 완료  (배정: 6건, 배정일: 2026-04-08)</text>
+  <text x="226" y="463" fill="#90EE90" font-size="9" font-family="Consolas, monospace">2026-04-08 16:15:10    DB 입력 시작  (6건)...</text>
+  <text x="226" y="478" fill="#90EE90" font-size="9" font-family="Consolas, monospace">2026-04-08 16:15:11    ✓ DB 입력 완료  (6건)</text>
+  <text x="226" y="493" fill="#FF5252" font-size="9" font-family="Consolas, monospace">2026-04-08 16:15:01    [오류] 배정갯수를 입력해 주세요</text>
+
+  <!-- Button bar -->
+  <rect x="10" y="520" width="125" height="32" fill="#1565C0" rx="4"/>
+  <text x="72" y="540" fill="white" font-size="11" font-weight="bold" text-anchor="middle">DB 조회</text>
+  <rect x="143" y="520" width="125" height="32" fill="#2E7D32" rx="4"/>
+  <text x="205" y="540" fill="white" font-size="11" font-weight="bold" text-anchor="middle">상세 조회</text>
+  <rect x="620" y="520" width="125" height="32" fill="#E65100" rx="4"/>
+  <text x="682" y="540" fill="white" font-size="11" font-weight="bold" text-anchor="middle">DB 배정</text>
+  <rect x="754" y="520" width="136" height="32" fill="#B71C1C" rx="4"/>
+  <text x="822" y="540" fill="white" font-size="11" font-weight="bold" text-anchor="middle">DB 입력</text>
+
+  <!-- Callout numbers -->
+  <circle cx="10" cy="44" r="10" fill="#E53935"/>
+  <text x="10" y="48" fill="white" font-size="10" font-weight="bold" text-anchor="middle">①</text>
+  <circle cx="183" cy="44" r="10" fill="#1565C0"/>
+  <text x="183" y="48" fill="white" font-size="10" font-weight="bold" text-anchor="middle">②</text>
+  <circle cx="10" cy="352" r="10" fill="#E65100"/>
+  <text x="10" y="356" fill="white" font-size="10" font-weight="bold" text-anchor="middle">③</text>
+  <circle cx="218" cy="352" r="10" fill="#2E7D32"/>
+  <text x="218" y="356" fill="white" font-size="10" font-weight="bold" text-anchor="middle">④</text>
+</svg>

@@ -1,0 +1,126 @@
+<svg viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+  <rect width="820" height="340" fill="#0D1117" rx="8"/>
+  <text x="410" y="28" fill="#90CAF9" font-size="13" font-weight="bold" text-anchor="middle">라운드로빈(Round-Robin) 배정 방식</text>
+
+  <!-- Input side -->
+  <rect x="20" y="50" width="160" height="240" rx="6" fill="#1A2634" stroke="#2C3E50" stroke-width="1"/>
+  <rect x="20" y="50" width="160" height="28" rx="6" fill="#0D47A1"/>
+  <rect x="20" y="66" width="160" height="12" fill="#0D47A1"/>
+  <text x="100" y="69" fill="white" font-size="10" font-weight="bold" text-anchor="middle">배정 테이블 입력값</text>
+  <rect x="22" y="82" width="156" height="20" fill="#1565C0" rx="2"/>
+  <text x="50" y="96" fill="white" font-size="10">담당자</text>
+  <text x="155" y="96" fill="white" font-size="10" text-anchor="end">배정수</text>
+  <rect x="22" y="105" width="156" height="22" fill="#243447"/>
+  <text x="50" y="120" fill="#ECF0F1" font-size="11">가미숙</text>
+  <rect x="140" y="107" width="36" height="18" fill="#E65100" rx="3"/>
+  <text x="158" y="120" fill="white" font-size="11" font-weight="bold" text-anchor="middle">4</text>
+  <rect x="22" y="130" width="156" height="22" fill="#1E2D3D"/>
+  <text x="50" y="145" fill="#ECF0F1" font-size="11">박미아</text>
+  <rect x="140" y="132" width="36" height="18" fill="#1565C0" rx="3"/>
+  <text x="158" y="145" fill="white" font-size="11" font-weight="bold" text-anchor="middle">2</text>
+  <text x="100" y="185" fill="#546E7A" font-size="9" text-anchor="middle">총 배정 건수 = 6건</text>
+  <text x="100" y="200" fill="#546E7A" font-size="9" text-anchor="middle">DB 내용 첫 행부터</text>
+  <text x="100" y="215" fill="#546E7A" font-size="9" text-anchor="middle">순서대로 배정됨</text>
+
+  <!-- Arrow -->
+  <line x1="182" y1="170" x2="220" y2="170" stroke="#4FC3F7" stroke-width="2"/>
+  <polygon points="220,166 228,170 220,174" fill="#4FC3F7"/>
+
+  <!-- Round columns -->
+  <!-- Round labels -->
+  <text x="280" y="48" fill="#78909C" font-size="9" text-anchor="middle">라운드 1</text>
+  <text x="360" y="48" fill="#78909C" font-size="9" text-anchor="middle">라운드 2</text>
+  <text x="440" y="48" fill="#78909C" font-size="9" text-anchor="middle">라운드 3</text>
+  <text x="520" y="48" fill="#78909C" font-size="9" text-anchor="middle">라운드 4</text>
+
+  <!-- Round 1: 가미숙 -->
+  <rect x="250" y="55" width="60" height="40" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="280" y="72" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+  <text x="280" y="87" fill="#4CAF50" font-size="8" text-anchor="middle">남은: 3</text>
+  <!-- Round 1: 박미아 -->
+  <rect x="250" y="105" width="60" height="40" rx="4" fill="#1A2040" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="280" y="122" fill="#90CAF9" font-size="10" font-weight="bold" text-anchor="middle">박미아</text>
+  <text x="280" y="137" fill="#42A5F5" font-size="8" text-anchor="middle">남은: 1</text>
+
+  <!-- Round 2: 가미숙 -->
+  <rect x="330" y="55" width="60" height="40" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="360" y="72" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+  <text x="360" y="87" fill="#4CAF50" font-size="8" text-anchor="middle">남은: 2</text>
+  <!-- Round 2: 박미아 -->
+  <rect x="330" y="105" width="60" height="40" rx="4" fill="#1A2040" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="360" y="122" fill="#90CAF9" font-size="10" font-weight="bold" text-anchor="middle">박미아</text>
+  <text x="360" y="137" fill="#42A5F5" font-size="8" text-anchor="middle">남은: 0</text>
+
+  <!-- Round 3: 가미숙 -->
+  <rect x="410" y="55" width="60" height="40" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="440" y="72" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+  <text x="440" y="87" fill="#4CAF50" font-size="8" text-anchor="middle">남은: 1</text>
+  <!-- Round 3: 박미아 완료 -->
+  <rect x="410" y="105" width="60" height="40" rx="4" fill="#1A1A1A" stroke="#424242" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="440" y="122" fill="#546E7A" font-size="10" text-anchor="middle">박미아</text>
+  <text x="440" y="137" fill="#424242" font-size="8" text-anchor="middle">완료 ✓</text>
+
+  <!-- Round 4: 가미숙 -->
+  <rect x="490" y="55" width="60" height="40" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="520" y="72" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+  <text x="520" y="87" fill="#4CAF50" font-size="8" text-anchor="middle">남은: 0</text>
+
+  <!-- Arrows between rounds -->
+  <line x1="312" y1="75" x2="328" y2="75" stroke="#78909C" stroke-width="1.5"/>
+  <polygon points="328,72 334,75 328,78" fill="#78909C"/>
+  <line x1="312" y1="125" x2="328" y2="125" stroke="#78909C" stroke-width="1.5"/>
+  <polygon points="328,122 334,125 328,128" fill="#78909C"/>
+  <line x1="392" y1="75" x2="408" y2="75" stroke="#78909C" stroke-width="1.5"/>
+  <polygon points="408,72 414,75 408,78" fill="#78909C"/>
+  <line x1="392" y1="125" x2="408" y2="125" stroke="#78909C" stroke-width="1.5"/>
+  <polygon points="408,122 414,125 408,128" fill="#78909C"/>
+  <line x1="472" y1="75" x2="488" y2="75" stroke="#78909C" stroke-width="1.5"/>
+  <polygon points="488,72 494,75 488,78" fill="#78909C"/>
+
+  <!-- Result sequence -->
+  <text x="410" y="170" fill="#90CAF9" font-size="10" font-weight="bold" text-anchor="middle">최종 배정 순서 (DB 내용 행 순서)</text>
+  <line x1="230" y1="178" x2="590" y2="178" stroke="#263238" stroke-width="1"/>
+
+  <!-- Sequence boxes -->
+  <rect x="232" y="185" width="55" height="38" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="260" y="201" fill="#90EE90" font-size="9" text-anchor="middle">1번째</text>
+  <text x="260" y="215" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+
+  <rect x="295" y="185" width="55" height="38" rx="4" fill="#1A2040" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="323" y="201" fill="#90CAF9" font-size="9" text-anchor="middle">2번째</text>
+  <text x="323" y="215" fill="#90CAF9" font-size="10" font-weight="bold" text-anchor="middle">박미아</text>
+
+  <rect x="358" y="185" width="55" height="38" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="386" y="201" fill="#90EE90" font-size="9" text-anchor="middle">3번째</text>
+  <text x="386" y="215" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+
+  <rect x="421" y="185" width="55" height="38" rx="4" fill="#1A2040" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="449" y="201" fill="#90CAF9" font-size="9" text-anchor="middle">4번째</text>
+  <text x="449" y="215" fill="#90CAF9" font-size="10" font-weight="bold" text-anchor="middle">박미아</text>
+
+  <rect x="484" y="185" width="55" height="38" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="512" y="201" fill="#90EE90" font-size="9" text-anchor="middle">5번째</text>
+  <text x="512" y="215" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+
+  <rect x="547" y="185" width="55" height="38" rx="4" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="575" y="201" fill="#90EE90" font-size="9" text-anchor="middle">6번째</text>
+  <text x="575" y="215" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">가미숙</text>
+
+  <!-- Small arrows between sequence boxes -->
+  <line x1="288" y1="204" x2="294" y2="204" stroke="#546E7A" stroke-width="1"/>
+  <line x1="351" y1="204" x2="357" y2="204" stroke="#546E7A" stroke-width="1"/>
+  <line x1="414" y1="204" x2="420" y2="204" stroke="#546E7A" stroke-width="1"/>
+  <line x1="477" y1="204" x2="483" y2="204" stroke="#546E7A" stroke-width="1"/>
+  <line x1="540" y1="204" x2="546" y2="204" stroke="#546E7A" stroke-width="1"/>
+
+  <!-- Count summary -->
+  <rect x="630" y="185" width="170" height="80" rx="6" fill="#1A2634" stroke="#FFD700" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="715" y="205" fill="#FFD700" font-size="10" font-weight="bold" text-anchor="middle">배정 결과 요약</text>
+  <text x="640" y="225" fill="#ECF0F1" font-size="9">가미숙   4건 배정 완료</text>
+  <text x="640" y="242" fill="#ECF0F1" font-size="9">박미아   2건 배정 완료</text>
+  <line x1="640" y1="250" x2="792" y2="250" stroke="#546E7A" stroke-width="0.5"/>
+  <text x="640" y="262" fill="#90EE90" font-size="9" font-weight="bold">합계      6건</text>
+
+  <!-- Note -->
+  <text x="410" y="308" fill="#546E7A" font-size="9" text-anchor="middle">💡  배정수가 소진된 담당자는 자동으로 건너뛰며, 모든 담당자 배정이 끝나면 종료됩니다.</text>
+</svg>

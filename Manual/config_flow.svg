@@ -1,0 +1,70 @@
+<svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+  <rect width="760" height="220" fill="#0D1117" rx="8"/>
+  <text x="380" y="28" fill="#90CAF9" font-size="12" font-weight="bold" text-anchor="middle">Config_DB.db 자동 다운로드 흐름</text>
+
+  <!-- Step 1: 앱 실행 -->
+  <rect x="20" y="55" width="110" height="50" rx="6" fill="#1565C0" stroke="#4FC3F7" stroke-width="1.5"/>
+  <text x="75" y="77" fill="white" font-size="10" font-weight="bold" text-anchor="middle">앱 실행</text>
+  <text x="75" y="94" fill="#90CAF9" font-size="8" text-anchor="middle">python main.py</text>
+
+  <!-- Arrow -->
+  <line x1="131" y1="80" x2="155" y2="80" stroke="#4FC3F7" stroke-width="2"/>
+  <polygon points="155,76 163,80 155,84" fill="#4FC3F7"/>
+
+  <!-- Step 2: 파일 확인 (diamond) -->
+  <polygon points="215,55 265,80 215,105 165,80" fill="#0D47A1" stroke="#4FC3F7" stroke-width="1.5"/>
+  <text x="215" y="77" fill="white" font-size="9" font-weight="bold" text-anchor="middle">로컬</text>
+  <text x="215" y="90" fill="white" font-size="9" font-weight="bold" text-anchor="middle">파일?</text>
+
+  <!-- YES arrow (right) -->
+  <line x1="266" y1="80" x2="300" y2="80" stroke="#4CAF50" stroke-width="2"/>
+  <polygon points="300,76 308,80 300,84" fill="#4CAF50"/>
+  <text x="283" y="73" fill="#4CAF50" font-size="9" text-anchor="middle">있음</text>
+
+  <!-- NO arrow (down) -->
+  <line x1="215" y1="106" x2="215" y2="135" stroke="#FF5252" stroke-width="2"/>
+  <polygon points="211,135 215,143 219,135" fill="#FF5252"/>
+  <text x="225" y="125" fill="#FF5252" font-size="9">없음</text>
+
+  <!-- Download from GDrive -->
+  <rect x="155" y="145" width="120" height="50" rx="6" fill="#1A2634" stroke="#FF5252" stroke-width="1.5"/>
+  <text x="215" y="167" fill="#EF9A9A" font-size="9" font-weight="bold" text-anchor="middle">Google Drive</text>
+  <text x="215" y="181" fill="#FFCDD2" font-size="8" text-anchor="middle">자동 다운로드</text>
+
+  <!-- Arrow up from download to use -->
+  <line x1="275" y1="170" x2="308" y2="170" stroke="#FF5252" stroke-width="2"/>
+  <line x1="308" y1="170" x2="308" y2="80" stroke="#FF5252" stroke-width="2"/>
+  <polygon points="304,80 308,72 312,80" fill="#FF5252"/>
+
+  <!-- Use Config -->
+  <rect x="310" y="55" width="130" height="50" rx="6" fill="#1A3A2A" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="375" y="77" fill="#90EE90" font-size="10" font-weight="bold" text-anchor="middle">Config 로드</text>
+  <text x="375" y="94" fill="#A5D6A7" font-size="8" text-anchor="middle">접속 정보 읽기</text>
+
+  <!-- Arrow -->
+  <line x1="441" y1="80" x2="465" y2="80" stroke="#2E7D32" stroke-width="2"/>
+  <polygon points="465,76 473,80 465,84" fill="#2E7D32"/>
+
+  <!-- SQL Server -->
+  <rect x="474" y="50" width="130" height="60" rx="6" fill="#263238" stroke="#546E7A" stroke-width="1.5"/>
+  <text x="539" y="74" fill="#90CAF9" font-size="10" font-weight="bold" text-anchor="middle">SQL Server</text>
+  <text x="539" y="92" fill="#78909C" font-size="8" text-anchor="middle">2008 R2</text>
+  <text x="539" y="104" fill="#546E7A" font-size="8" text-anchor="middle">TM_MEMBER / Staff</text>
+
+  <!-- Config DB detail -->
+  <rect x="620" y="45" width="130" height="130" rx="6" fill="#1A1A2E" stroke="#7B1FA2" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="685" y="65" fill="#CE93D8" font-size="9" font-weight="bold" text-anchor="middle">DBCON 테이블</text>
+  <line x1="630" y1="72" x2="742" y2="72" stroke="#4A148C" stroke-width="0.5"/>
+  <text x="630" y="88" fill="#E1BEE7" font-size="8">Name     HD_MSSQL</text>
+  <text x="630" y="103" fill="#E1BEE7" font-size="8">DB_Type  SQL Server</text>
+  <text x="630" y="118" fill="#E1BEE7" font-size="8">Host     192.168.x.x</text>
+  <text x="630" y="133" fill="#E1BEE7" font-size="8">Port     1433</text>
+  <text x="630" y="148" fill="#E1BEE7" font-size="8">DB_Name  데이터베이스</text>
+  <text x="630" y="163" fill="#E1BEE7" font-size="8">DB_PW    ********</text>
+  <!-- dashed arrow to sql server -->
+  <line x1="618" y1="110" x2="606" y2="110" stroke="#7B1FA2" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="606,107 598,110 606,113" fill="#7B1FA2"/>
+
+  <!-- Note -->
+  <text x="380" y="200" fill="#546E7A" font-size="9" text-anchor="middle">로컬에 이미 Config_DB.db 가 있으면 다운로드 생략 — 변경 시 ./DB/Config_DB.db 삭제 후 재실행</text>
+</svg>

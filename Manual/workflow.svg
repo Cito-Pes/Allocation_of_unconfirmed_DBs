@@ -1,0 +1,65 @@
+<svg viewBox="0 0 860 200" xmlns="http://www.w3.org/2000/svg" font-family="'Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+  <rect width="860" height="200" fill="#0D1117" rx="8"/>
+
+  <!-- Step boxes -->
+  <!-- Step 1 -->
+  <rect x="20" y="60" width="140" height="80" rx="6" fill="#1565C0" stroke="#4FC3F7" stroke-width="1.5"/>
+  <text x="90" y="93" fill="white" font-size="13" font-weight="bold" text-anchor="middle">① DB 조회</text>
+  <text x="90" y="113" fill="#90CAF9" font-size="9" text-anchor="middle">월별 미체결 건수</text>
+  <text x="90" y="126" fill="#90CAF9" font-size="9" text-anchor="middle">집계 조회</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="160" y1="100" x2="188" y2="100" stroke="#4FC3F7" stroke-width="2"/>
+  <polygon points="188,96 196,100 188,104" fill="#4FC3F7"/>
+  <!-- sub label -->
+  <text x="174" y="93" fill="#78909C" font-size="8" text-anchor="middle">체크박스</text>
+  <text x="174" y="83" fill="#78909C" font-size="8" text-anchor="middle">월 선택</text>
+
+  <!-- Step 2 -->
+  <rect x="196" y="60" width="140" height="80" rx="6" fill="#2E7D32" stroke="#81C784" stroke-width="1.5"/>
+  <text x="266" y="93" fill="white" font-size="13" font-weight="bold" text-anchor="middle">② 상세 조회</text>
+  <text x="266" y="113" fill="#C8E6C9" font-size="9" text-anchor="middle">DB 내용 + 배정</text>
+  <text x="266" y="126" fill="#C8E6C9" font-size="9" text-anchor="middle">담당자 목록 로드</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="336" y1="100" x2="364" y2="100" stroke="#81C784" stroke-width="2"/>
+  <polygon points="364,96 372,100 364,104" fill="#81C784"/>
+  <text x="350" y="93" fill="#78909C" font-size="8" text-anchor="middle">배정갯수</text>
+  <text x="350" y="83" fill="#78909C" font-size="8" text-anchor="middle">입력</text>
+
+  <!-- Step 3 -->
+  <rect x="372" y="60" width="140" height="80" rx="6" fill="#E65100" stroke="#FFCC80" stroke-width="1.5"/>
+  <text x="442" y="93" fill="white" font-size="13" font-weight="bold" text-anchor="middle">③ DB 배정</text>
+  <text x="442" y="113" fill="#FFE0B2" font-size="9" text-anchor="middle">라운드로빈</text>
+  <text x="442" y="126" fill="#FFE0B2" font-size="9" text-anchor="middle">자동 배정 처리</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="512" y1="100" x2="540" y2="100" stroke="#FFCC80" stroke-width="2"/>
+  <polygon points="540,96 548,100 540,104" fill="#FFCC80"/>
+  <text x="526" y="93" fill="#78909C" font-size="8" text-anchor="middle">배정 결과</text>
+  <text x="526" y="83" fill="#78909C" font-size="8" text-anchor="middle">확인</text>
+
+  <!-- Step 4 -->
+  <rect x="548" y="60" width="140" height="80" rx="6" fill="#B71C1C" stroke="#EF9A9A" stroke-width="1.5"/>
+  <text x="618" y="93" fill="white" font-size="13" font-weight="bold" text-anchor="middle">④ DB 입력</text>
+  <text x="618" y="113" fill="#FFCDD2" font-size="9" text-anchor="middle">DB UPDATE +</text>
+  <text x="618" y="126" fill="#FFCDD2" font-size="9" text-anchor="middle">엑셀 자동 저장</text>
+
+  <!-- Arrow 4→result -->
+  <line x1="688" y1="100" x2="716" y2="100" stroke="#EF9A9A" stroke-width="2"/>
+  <polygon points="716,96 724,100 716,104" fill="#EF9A9A"/>
+
+  <!-- Result box -->
+  <rect x="724" y="55" width="120" height="90" rx="6" fill="#1A2634" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="784" y="88" fill="#FFD700" font-size="11" font-weight="bold" text-anchor="middle">완료</text>
+  <text x="784" y="108" fill="#FFF9C4" font-size="9" text-anchor="middle">✓ DB 반영</text>
+  <text x="784" y="122" fill="#FFF9C4" font-size="9" text-anchor="middle">✓ 엑셀 저장</text>
+  <text x="784" y="136" fill="#FFF9C4" font-size="9" text-anchor="middle">✓ 로그 기록</text>
+
+  <!-- Top labels -->
+  <text x="430" y="20" fill="#546E7A" font-size="11" text-anchor="middle">전체 작업 순서 (반드시 ① → ② → ③ → ④ 순서로 진행)</text>
+  <line x1="60" y1="27" x2="800" y2="27" stroke="#263238" stroke-width="1"/>
+
+  <!-- Bottom note -->
+  <text x="430" y="175" fill="#546E7A" font-size="9" text-anchor="middle">* ①②는 조회만 수행 (DB 변경 없음)  |  ③은 화면 처리만 수행  |  ④에서 실제 DB가 변경됩니다</text>
+</svg>
