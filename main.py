@@ -617,6 +617,9 @@ class MainWindow(QMainWindow):
                 SET AssignCharge_ID = %s, AssignDate = %s 
                 WHERE ID = %s
             """
+            sql2 = """
+                
+            """
             for rec in new_assigned:
                 # print(sql, (rec["SaBun"], rec["AssignDate"], rec["ID"]))
                 cursor.execute(sql, (rec["SaBun"], rec["AssignDate"], rec["ID"]))
