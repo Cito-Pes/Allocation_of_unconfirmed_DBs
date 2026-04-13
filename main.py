@@ -1,7 +1,7 @@
 """
 미체결DB 배정 프로그램
 개발환경: Python 3.13 / PySide6
-DB: SQL Server 2008 R2 (pyodbc)
+DB: SQL Server 2008 R2 (pytds - 순수 Python TDS 구현)
 """
 
 import os
@@ -10,7 +10,8 @@ import sys
 import sqlite3
 import datetime
 import requests
-import pyodbc
+import pytds
+
 
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout,
@@ -25,11 +26,29 @@ import openpyxl
 from openpyxl.styles import Font as XLFont, PatternFill, Alignment, Border, Side
 
 # ─────────────────────────────────────────────
+#  경로 헬퍼 (PyInstaller exe / 일반 실행 공용)
+# ─────────────────────────────────────────────
+def app_dir() -> str:
+    """실행 파일(또는 스크립트)이 있는 폴더 — Downloads·DB 저장 경로에 사용"""
+    if hasattr(sys, "frozen"):          # PyInstaller exe
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.path.abspath(__file__))
+
+def resource_path(relative: str) -> str:
+    """번들 내 리소스 경로 — 폰트·아이콘 등 읽기 전용 파일에 사용"""
+    if hasattr(sys, "_MEIPASS"):        # PyInstaller 압축 해제 임시 폴더
+        return os.path.join(sys._MEIPASS, relative)
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), relative)
+
+
+# ─────────────────────────────────────────────
 #  Config DB 설정 (Google_Drive_ConfigDB_Guide.md 기준)
 # ─────────────────────────────────────────────
-GDRIVE_URL = "https://drive.google.com/file/d/{FILE_ID}/view?usp=drive_link"   # ★ 수정
-DB_DIR     = "./DB"
-DB_FILE    = "Config_DB.db"
+FILE_ID = "1oncya1uYDnbVS2KwuBAKw4x4o9oQDct0"
+GDRIVE_URL  = f"https://drive.google.com/file/d/{FILE_ID}/view?usp=drive_link"   # ★ 수정
+# url = "https://drive.google.com/file/d/1oncya1uYDnbVS2KwuBAKw4x4o9oQDct0/view?usp=drive_link"
+DB_DIR      = os.path.join(app_dir(), "DB")   # 실행파일 옆 DB 폴더
+DB_FILE     = "Config_DB.db"
 CONFIG_NAME = "HD_MSSQL"
 
 
@@ -92,14 +111,20 @@ def load_db_config() -> dict:
 
 
 def get_mssql_connection(cfg: dict):
-    conn_str = (
-        f"DRIVER={{{cfg['DB_Type']}}};"
-        f"SERVER={cfg['Host']},{cfg['Port']};"
-        f"DATABASE={cfg['DB_Name']};"
-        f"UID={cfg['DB_ID']};"
-        f"PWD={cfg['DB_PW']}"
+    """
+    pytds (python-tds) — 순수 Python TDS 구현체.
+    시스템 ODBC 드라이버 / FreeTDS 없이 SQL Server에 직접 접속한다.
+    SQL Server 2005 이상 호환.
+    """
+    return pytds.connect(
+        dsn=cfg["Host"],
+        port=int(cfg["Port"]),
+        user=cfg["DB_ID"],
+        password=cfg["DB_PW"],
+        database=cfg["DB_Name"],
+        login_timeout=10,
+        autocommit=False,
     )
-    return pyodbc.connect(conn_str, timeout=10)
 
 
 # ─────────────────────────────────────────────
@@ -145,7 +170,8 @@ class MainWindow(QMainWindow):
 
     # ── 아이콘 ──────────────────────────────
     def _set_icon(self):
-        for path in ["./images/app_icon.png", "./icon.ico"]:
+        for rel in ["images/app_icon.png", "icon.ico"]:
+            path = resource_path(rel)
             if os.path.exists(path):
                 self.setWindowIcon(QIcon(path))
                 break
@@ -332,7 +358,7 @@ class MainWindow(QMainWindow):
             sql = """
                 SELECT 		
                 DISTINCT LEFT(t1.Rec_Date,7) AS Rec_YM, count(OrderNo) CNT
-                FROM dbo.TM_MEMBER_TEST t1 WITH(NOLOCK)		
+                FROM dbo.TM_MEMBER t1 WITH(NOLOCK)		
                 LEFT JOIN dbo.Member m1 WITH(NOLOCK) ON m1.MemberNo = t1.Mem_ID		
                 LEFT JOIN dbo.Staff s1 WITH(NOLOCK) ON t1.AssignCharge_ID = s1.SaBun 		
                 LEFT JOIN dbo.Staff s2 WITH(NOLOCK) ON m1.Charge_IDP = s2.SaBun		
@@ -340,7 +366,7 @@ class MainWindow(QMainWindow):
                 LEFT JOIN (SELECT DISTINCT REPLACE(Mobile,'-','') AS Mobile FROM Member WITH(NOLOCK) WHERE MemType IN ('만기','정상','행사')) m2 ON REPLACE(t1.Mobile,'-','') = m2.Mobile		
                 LEFT JOIN (SELECT DISTINCT REPLACE(Tel,'-','') AS Mobile FROM Member WITH(NOLOCK) WHERE MemType IN ('만기','정상','행사')) m3 ON REPLACE(t1.Mobile,'-','') = m3.Mobile		
                 LEFT JOIN (SELECT DISTINCT REPLACE(OfficeTel,'-','') AS Mobile FROM Member WITH(NOLOCK) WHERE MemType IN ('만기','정상','행사')) m4 ON REPLACE(t1.Mobile,'-','') = m4.Mobile		
-                LEFT JOIN (SELECT DISTINCT REPLACE(t1.Mobile,'-', '') AS Mobile FROM TM_MEMBER_TEST t1 WITH(NOLOCK) LEFT JOIN dbo.Staff s1 WITH(NOLOCK) ON t1.AssignCharge_ID = s1.SaBun WHERE s1.PlaceofDuty IN ('글로벌세무금융','올리고생활건강','미채결','바른라이프')) t2  ON t2.Mobile = t1.Mobile		
+                LEFT JOIN (SELECT DISTINCT REPLACE(t1.Mobile,'-', '') AS Mobile FROM TM_MEMBER t1 WITH(NOLOCK) LEFT JOIN dbo.Staff s1 WITH(NOLOCK) ON t1.AssignCharge_ID = s1.SaBun WHERE s1.PlaceofDuty IN ('글로벌세무금융','올리고생활건강','미채결','바른라이프')) t2  ON t2.Mobile = t1.Mobile		
                 WHERE HS_Name LIKE '%쇼핑%' AND Mem_ID = ''		
                 AND d1.Mobile IS NULL -- 두낫콜 제외		
                 AND s1.PlaceofDuty NOT IN ('글로벌세무금융', '올리고생활건강','미채결','바른라이프') -- 미체결 업체에서 기배정된 DB제외		
@@ -400,7 +426,7 @@ class MainWindow(QMainWindow):
             sql = f"""
                 SELECT 		
                 DISTINCT REPLACE(t1.Mobile,'-','') AS Mobile, t1.ID, t1.Name, t1.Rec_Date, MemoType, AssignCharge_ID, s1.saname, s1.PlaceofDuty, AssignDate, OrderNo, HS_Name		
-                FROM dbo.TM_MEMBER_TEST t1 WITH(NOLOCK)		
+                FROM dbo.TM_MEMBER t1 WITH(NOLOCK)		
                 LEFT JOIN dbo.Member m1 WITH(NOLOCK) ON m1.MemberNo = t1.Mem_ID		
                 LEFT JOIN dbo.Staff s1 WITH(NOLOCK) ON t1.AssignCharge_ID = s1.SaBun 		
                 LEFT JOIN dbo.Staff s2 WITH(NOLOCK) ON m1.Charge_IDP = s2.SaBun		
@@ -408,7 +434,7 @@ class MainWindow(QMainWindow):
                 LEFT JOIN (SELECT DISTINCT REPLACE(Mobile,'-','') AS Mobile FROM Member WITH(NOLOCK) WHERE MemType IN ('만기','정상','행사')) m2 ON REPLACE(t1.Mobile,'-','') = m2.Mobile		
                 LEFT JOIN (SELECT DISTINCT REPLACE(Tel,'-','') AS Mobile FROM Member WITH(NOLOCK) WHERE MemType IN ('만기','정상','행사')) m3 ON REPLACE(t1.Mobile,'-','') = m3.Mobile		
                 LEFT JOIN (SELECT DISTINCT REPLACE(OfficeTel,'-','') AS Mobile FROM Member WITH(NOLOCK) WHERE MemType IN ('만기','정상','행사')) m4 ON REPLACE(t1.Mobile,'-','') = m4.Mobile		
-                LEFT JOIN (SELECT DISTINCT REPLACE(t1.Mobile,'-', '') AS Mobile FROM TM_MEMBER_TEST t1 WITH(NOLOCK) LEFT JOIN dbo.Staff s1 WITH(NOLOCK) ON t1.AssignCharge_ID = s1.SaBun WHERE s1.PlaceofDuty IN ('글로벌세무금융','올리고생활건강','미채결','바른라이프')) t2  ON t2.Mobile = t1.Mobile		
+                LEFT JOIN (SELECT DISTINCT REPLACE(t1.Mobile,'-', '') AS Mobile FROM TM_MEMBER t1 WITH(NOLOCK) LEFT JOIN dbo.Staff s1 WITH(NOLOCK) ON t1.AssignCharge_ID = s1.SaBun WHERE s1.PlaceofDuty IN ('글로벌세무금융','올리고생활건강','미채결','바른라이프')) t2  ON t2.Mobile = t1.Mobile		
                 WHERE HS_Name LIKE '%쇼핑%' AND Mem_ID = ''		
                 AND d1.Mobile IS NULL -- 두낫콜 제외		
                 AND s1.PlaceofDuty NOT IN ('글로벌세무금융', '올리고생활건강','미채결','바른라이프') -- 미체결 업체에서 기배정된 DB제외		
@@ -561,10 +587,10 @@ class MainWindow(QMainWindow):
                 mem_id   = self.tbl_detail.item(row, 1).text().strip() if self.tbl_detail.item(row, 1) else ""
                 sabun = self._find_sabun_by_name(new_name)
                 new_assigned.append({
-                    "ID"         : mem_id,
-                    "AssignDate" : assign_date,
-                    "SaBun"      : sabun,
-                    "SaName"     : new_name,
+                    "ID"         : str(mem_id),
+                    "AssignDate" : str(assign_date),
+                    "SaBun"      : str(sabun),
+                    "SaName"     : str(new_name),
                 })
 
         if not new_assigned:
@@ -585,13 +611,17 @@ class MainWindow(QMainWindow):
         def task():
             conn   = get_mssql_connection(self.db_config)
             cursor = conn.cursor()
+            print(new_assigned)
             sql = """
-                UPDATE TM_MEMBER_TEST
-                SET AssignCharge_ID = ?, AssignDate = ?
-                WHERE ID = ?
+                UPDATE TM_MEMBER
+                SET AssignCharge_ID = %s, AssignDate = %s 
+                WHERE ID = %s
             """
             for rec in new_assigned:
+                # print(sql, (rec["SaBun"], rec["AssignDate"], rec["ID"]))
                 cursor.execute(sql, (rec["SaBun"], rec["AssignDate"], rec["ID"]))
+                # print("OK")
+                
             conn.commit()
             conn.close()
             return new_assigned
@@ -619,7 +649,7 @@ class MainWindow(QMainWindow):
     # ─────────────────────────────────────────
     def _export_excel(self, new_assigned: list):
         today = datetime.date.today().strftime("%Y-%m-%d")
-        download_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Downloads")
+        download_dir = os.path.join(app_dir(), "Downloads")
         os.makedirs(download_dir, exist_ok=True)
 
         # ── 중복 파일명 처리: 동일 파일 존재 시 _1, _2 ... 순서로 증가 ──
@@ -757,8 +787,7 @@ if __name__ == "__main__":
     app.setApplicationName("미체결DB 배정")
 
     # ── D2Coding 폰트 로드 ──────────────────────
-    font_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             "Font", "D2Coding-Ver1.3.2-20180524.ttf")
+    font_path = resource_path(os.path.join("Font", "D2Coding-Ver1.3.2-20180524.ttf"))
     if os.path.exists(font_path):
         QFontDatabase.addApplicationFont(font_path)
         app.setFont(QFont("D2Coding", 10))
