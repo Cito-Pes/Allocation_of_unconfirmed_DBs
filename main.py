@@ -611,18 +611,57 @@ class MainWindow(QMainWindow):
         def task():
             conn   = get_mssql_connection(self.db_config)
             cursor = conn.cursor()
-            print(new_assigned)
-            sql = """
-                UPDATE TM_MEMBER
-                SET AssignCharge_ID = %s, AssignDate = %s 
-                WHERE ID = %s
-            """
+
             sql2 = """
-                
+                UPDATE TM_MEMBER
+                SET AssignCharge_ID = %s, AssignDate = %s , Modi_Date = CONVERT(VARCHAR(30),GETDATE(),120)
+                WHERE ID = %s
+                """
+            sql3 = """
+                    INSERT INTO TM_M_Memo
+                        (Note_Date, 
+                        Note_time, 
+                        Charge_ID, 
+                        ID, 
+                        TMemo, 
+                        Save_Date, 
+                        Modi_Date, 
+                        TelCall_Gu, 
+                        TelCall_ErrGu, 
+                        TelCall_Mem, 
+                        Memo_GuBun, 
+                        ProDate, 
+                        M_Submit, 
+                        M_PayNum, 
+                        ProTime
+                        )
+                    VALUES
+                        (
+                        SUBSTRING(CONVERT(VARCHAR(30),GETDATE(),120),1,10), 
+                        SUBSTRING(CONVERT(VARCHAR(30),GETDATE(),120),11,20), 
+                        '', /*Charge_ID*/
+                        %s, /*ID*/
+                        %s, /*TMemo*/
+                        CONVERT(VARCHAR(30),GETDATE(),120), 
+                        CONVERT(VARCHAR(30),GETDATE(),120), 
+                        '담당자 변경', 
+                        '', 
+                        '', 
+                        '2', 
+                        '', 
+                        'OTHER', 
+                        0, 
+                        ''/*ProTime 예약시간*/
+                        )
             """
+
             for rec in new_assigned:
-                # print(sql, (rec["SaBun"], rec["AssignDate"], rec["ID"]))
-                cursor.execute(sql, (rec["SaBun"], rec["AssignDate"], rec["ID"]))
+                # cursor.execute(sql1, rec["ID"])
+                cursor.execute(f"select s.saname+'('+t.AssignCharge_ID+'), '+t.AssignDate+'배정 → ' as Memo1  from TM_MEMBER t inner join staff s on t.AssignCharge_ID = s.SaBun where id= '{rec["ID"]}' ")
+                Memo1 = cursor.fetchone()
+                Set_Memo = f'{Memo1[0]} {rec["SaName"]}({rec["SaBun"]}) {rec["AssignDate"]} 배정'
+                cursor.execute(sql2, (rec["SaBun"], rec["AssignDate"], rec["ID"]))
+                cursor.execute(sql3, (rec["ID"], Set_Memo))
                 # print("OK")
                 
             conn.commit()
